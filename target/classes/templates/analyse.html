@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="Card.css">
+    <style>
+        table {
+          width: 100%;
+          border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+<p style="font-size: 40px;">analytical Phase</p>
+<div  th:object="${area}">
+    <a th:id="*{projectid}" onclick="openArea(this.id)" class="button button2" style="float: left;">back</a>
+
+    <table >
+        <tr>
+          <th>Nature of crossing</th>
+          <th>Surrounding area nature</th>
+          <th>Accessability to site</th>
+          <th>Soil condition</th>
+          <th>Volume of Traffic During Construction</th>
+          <th>land tepography range</th>
+          <th>Bridge hight above ground</th>
+          <th>Horizontal Alignment</th><th>Bridge Span length</th><th>Cranes capacity and maneuvering</th>
+        </tr>
+        <tr>
+          <td><p th:text="*{Nature_of_crossing}"></p></td>
+            <td><p th:text="*{Surrounding_area_nature}"></p></td>
+            <td><p th:text="*{Accessability_to_site}"></p></td>
+            <td><p th:text="*{Soil_condition}"></p></td>
+          <td><p th:text="*{Volume_of_Traffic_During_Construction}"></p></td>
+            <td><p th:text="*{land_tepography_range}"></p></td>
+          <td><p th:text="*{Bridge_hight_above_ground}"></p></td>
+            <td><p th:text="*{Horizontal_Alignment}"></p></td>
+            <td><p th:text="*{Bridge_Span_length}"></p></td>
+            <td><p th:text="*{Cranes_capacity_and_maneuvering}"></p></td>
+        </tr>
+    </table>
+
+    <script>
+        var openArea=function(id){
+            location.replace("http://localhost:8080/project_findById?id="+id)
+        }
+    </script>
+</div>
+
+<div  class="loader"  th:each="c : ${best_fit}">
+    <form method="#" class="card" >
+        <div  class="container" style="align-content: center;">
+
+            <h3 style="color: white;" th:text="*{c}"><p> </p></h3>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
+

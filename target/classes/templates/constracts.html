@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="Card.css">
+</head>
+<body>
+
+
+<div  class="loader" style="background-color: #f88b4b" >
+    <form method="#" class="card" th:object="${way}">
+        <div  class="container" style="align-content: center;">
+            <h3 style="color: white;"><p  th:text="*{method}"> </p></h3>
+            <h3 style="color: white;"><p  th:text="*{description}"> </p></h3>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+.card p{
+    display: inline;
+    width: 80%;
+}
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+    text-align: center;
+    display: block;
+    align-content: center;
+    margin: 0 auto;
+    background-color:#9e9e9e ;
+}
+.loader{
+    text-align: center;
+    width: 97%;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    float: left;
+    border-radius: 5px;
+    width: 80%;
+    display: block;
+    padding: 0 10px;
+    align-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20vh;
+    background-color: #9e9e9e;
+    border: 3px solid #333232;
+    text-transform: capitalize;
+}
+
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.add_text {
+    border: none;
+    border-bottom: 2px solid  #9e9e9e;
+    font-size: 30px;
+    height: 35px;
+    width: 60%;border: none;
+    border-bottom: 3px solid  #9e9e9e;
+    font-size: 30px;height: 30px;
+    margin-bottom:10px ;
+}
+
+::placeholder {
+    opacity: 20%;
+    color: #9e9e9e;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: #008CBA;
+    color: black;
+    border: 3px solid #2e2e2e;
+}
+
+.button1:hover {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.button2:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid #cb0303;
+}
+
+.button3:hover {
+    background-color: #cb0303;
+    color: white;
+}

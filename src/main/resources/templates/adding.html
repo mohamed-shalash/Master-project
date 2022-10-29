@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="Card.css">
+</head>
+<body>
+
+<form action="#" th:object="${area}">
+    <a th:id="*{projectid}" onclick="back_adding(this.id)" class="button button2" style="float: left;">back</a>
+
+    <p style="font-size: 40px">Information Pahse Con't</p>
+   <!-- <div style="opacity: 0" th:value="*{projectid}" name="projectid"> </div>
+    <div th:if="*{id}!=0">
+        <div style="opacity: 0" th:value="*{id}" name="id"> </div>
+    </div>-->
+   <p><input type="text" name="projectid" class="add_text" th:value="*{projectid}" style="display: none"/></p>
+      <div th:if="*{id}!=0">
+      <p ><input type="text" name="id" class="add_text" placeholder="area id" th:value="*{id}"style="display: none"/></p>
+  </div>
+<hr style="width:100%;text-align:left;margin-left:1%;margin-right: 20%;margin-top: 1.5%;margin-bottom: 2%;"/>
+
+    <fieldset>
+        <div class="grid-container">
+            <div class="grid-child purple">
+
+                <label for="name" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Area Name</label>
+                <label for="Nature_of_crossing" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Nature of crossing</label>
+
+                <label for="Surrounding_area_nature" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Surrounding area nature</label>
+
+                <label for="Accessability_to_site" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Accessability to site</label>
+                <label for="Soil_condition" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Soil condition</label>
+                <label for="Volume_of_Traffic_During_Construction" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Volume of Traffic During Construction</label>
+                <label for="land_tepography_range" style="display: block;height:62px;width: 90%; float: right;text-align: right;">land tepography range</label>
+                <label for="Bridge_hight_above_ground" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Bridge hight above ground</label>
+                <label for="Horizontal_Alignment" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Horizontal Alignment</label>
+                <label for="Bridge_Span_length" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Bridge Span length</label>
+                <label for="Cranes_capacity_and_maneuvering" style="display: block;height:62px;width: 90%; float: right;text-align: right;">Cranes capacity and maneuvering</label>
+
+
+            </div>
+        
+            <div class="grid-child green">
+                <div class="grid-child purple">
+                    <input  type="text" name="name" id="name" class="custom-select" th:value="*{name}"/>
+
+                    <select name="Nature_of_crossing" class="custom-select" id="Nature_of_crossing"  >
+                        <option value="Highway" th:selected="*{Nature_of_crossing}=='Highway'">Highway</option>
+                        <option value="Railway" th:selected="*{Nature_of_crossing}=='Railway'">Railway</option>
+                        <option value="waterway"th:selected="*{Nature_of_crossing}=='waterway'">waterway</option>
+                    </select>
+
+                    <select name="Surrounding_area_nature" class="custom-select" id="Surrounding_area_nature">
+                        <option value="Downtown" th:selected="*{Surrounding_area_nature}=='Downtown'">Downtown</option>
+                        <option value="Desert" th:selected="*{Surrounding_area_nature}=='Desert'">Desert</option>
+                        <option value="Agrarian" th:selected="*{Surrounding_area_nature}=='Agrarian'">Agrarian</option>
+                    </select>
+
+                    <select name="Accessability_to_site" class="custom-select" id="Accessability_to_site">
+                        <option value="ease access" th:selected="*{Accessability_to_site}=='ease access'">ease access</option>
+                        <option value="non-ease access" th:selected="*{Accessability_to_site}=='non-ease access'">non-ease access</option>
+                    </select>
+
+
+                    <select name="Soil_condition" class="custom-select" id="Soil_condition">
+                        <option value="strong" th:selected="*{Soil_condition}=='strong'">strong</option>
+                        <option value="medium" th:selected="*{Soil_condition}=='medium'">medium</option>
+                        <option value="weak"   th:selected="*{Soil_condition}=='weak'">weak</option>
+                    </select>
+
+
+                    <select name="Volume_of_Traffic_During_Construction" class="custom-select" id="Volume_of_Traffic_During_Construction">
+                        <option value="Moderate" th:selected="*{Volume_of_Traffic_During_Construction}=='Moderate'">Moderate</option>
+                        <option value="High" th:selected="*{Volume_of_Traffic_During_Construction}=='High'">High</option>
+                    </select>
+
+
+                    <select name="land_tepography_range" class="custom-select" id="land_tepography_range">
+                        <option value="0 - 200 cm" th:selected="*{land_tepography_range}=='0 - 200 cm'">0 - 200 cm</option>
+                        <option value="200-400 cm" th:selected="*{land_tepography_range}=='200-400 cm'">200-400 cm</option>
+                        <option value="more than 400 cm" th:selected="*{land_tepography_range}=='more than 400 cm'">more than 400 cm</option>
+                    </select>
+
+
+                        <select name="Bridge_hight_above_ground" class="custom-select" id="Bridge_hight_above_ground">
+                            <option value="0- 7 m" th:selected="*{Bridge_hight_above_ground}=='0- 7 m'">0- 7 m</option>
+                            <option value="7-20 m" th:selected="*{Bridge_hight_above_ground}=='7-20 m'">7-20 m</option>
+                            <option value="more than 20 m" th:selected="*{Bridge_hight_above_ground}=='more than 20 m'">more than 20 m</option>
+                        </select>
+
+
+                        <select name="Horizontal_Alignment" class="custom-select" id="Horizontal_Alignment">
+                            <option value="small to medium curvature" th:selected="*{Horizontal_Alignment}=='small to medium curvature'">small to medium curvature</option>
+                            <option value="medium to high curvature" th:selected="*{Horizontal_Alignment}=='medium to high curvature'">medium to high curvature</option>
+                        </select>
+
+
+                        <select name="Bridge_Span_length" class="custom-select" id="Bridge_Span_length">
+                            <option value="0-20 m" th:selected="*{Bridge_Span_length}=='0-20 m'">0-20 m</option>
+                            <option value="20-50 m" th:selected="*{Bridge_Span_length}=='20-50 m'">20-50 m</option>
+                            <option value="50-200 m" th:selected="*{Bridge_Span_length}=='50-200 m'">50-200 m</option>
+                            <option value="more than 200 m" th:selected="*{Bridge_Span_length}=='more than 200 m'">more than 200 m</option>
+                        </select>
+
+
+                        <select name="Cranes_capacity_and_maneuvering" class="custom-select" id="Cranes_capacity_and_maneuvering">
+                            <option value="require area for maneuvering" th:selected="*{Cranes_capacity_and_maneuvering}=='require area for maneuvering'">require area for maneuvering</option>
+                            <option value=" does not require area for maneuvering" th:selected="*{Cranes_capacity_and_maneuvering}==' does not require area for maneuvering'"> does not require area for maneuvering</option>
+                        </select>
+
+                    
+            </div>
+            </div>
+        </div>
+        <div class="grid-child purple"></div>
+        <div  class="grid-child green">
+            <button class="button button1" formaction="/area/addNew" style="float: right;">Submit Critiria</button>
+        </div>
+    </fieldset>
+</form>
+
+
+
+<script>
+
+    ID=null;
+    var back_adding=function(id){
+        ID=id;
+        location.replace("http://localhost:8080/project_findById?id="+id)
+    }
+
+</script>
+
+
+
+</body>
+</html>

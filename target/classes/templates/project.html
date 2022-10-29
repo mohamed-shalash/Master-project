@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="Card.css">
+</head>
+<body>
+<p style="font-size: 40px;">Information Phase</p>
+<a href="/" class="button button2" style="float: right;display:block;">back</a>
+
+<div th:object="${project}"  style="display: block;width: 70%; ">
+
+    <p style="float:left;">Id :</p>  <p th:text=" *{id}" style="float: left;">id</p><br>
+    <p style="float:left;">Name :</p>   <p th:text=" *{name}" style="float: left;">Name</p><br>
+    <p style="float:left;">Owner :</p>   <p th:text=" *{owner}" style="float: left;">Owner</p><br>
+    <p style="float:left;">Country :</p>   <p th:text=" *{Country}" style="float: left;">contry</p><br>
+    <p style="float:left;">City :</p>  <p th:text=" *{city}" style="float: left;"> city  </p><br>
+    <p style="float:left;">Street :</p>  <p th:text=" *{street}" style="float: left;"> street  </p><br>
+    <p style="float:left;">Date :</p>     <p  th:text=" *{date}" style="float: left;">   </p><br>
+    <p style="float:left;">Description :</p>    <p  th:text=" *{ description}" style="float: left;">   </p> <br>
+
+
+    <button th:id="*{id}" class="button button1" onclick="AddArea(this.id)">Add Area</button>
+    <a th:id="*{id}" onclick="document.getElementById('id02').style.display='block';doWithThisElementproject(this.id)" class="button button3" >Delete Project</a>
+
+</div>
+<hr style="width:100%;text-align:left;margin-left:1%;margin-right: 20%;margin-top: 1.5%;margin-bottom: 2%;"/>
+<div >
+
+    <div  class="loader"  th:each="c : ${project.areas}">
+        <form method="#" class="card" >
+            <div  class="container" style="align-content: center">
+
+                <p th:text="${c.name}"></p><br><br>
+
+                
+                <a th:id="${c.id}" onclick="openArea(this.id)" class="button button1" >Open Area</a>
+                <a th:id="${c.id}" onclick="openCriteria(this.id)" class="button button1" >Open Criteria</a>
+                <a th:id="${c.id}" class="button button3" onclick="document.getElementById('id01').style.display='block';doWithThisElement(this.id);">Delete</a>
+            </div>
+        </form>
+    </div>
+</div>
+    <!----------------------------------Delete--------------------------------------------------->
+    <div id="id01" class="modal">
+        <form class="modal-content" action="#">
+            <div class="container">
+                <h1>Delete Area</h1>
+                <p>Are you sure you want to delete This Area?</p>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="button button2">Cancel</button>
+                    <button type="button" onclick="delete_that();document.getElementById('id01').style.display='none'" class="button button3">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        ID=null;
+        var doWithThisElement=function(id){
+            ID=id;
+        }
+
+        var delete_that=function(){
+            //alert(ID)/project/{id}/delete
+            location.replace("http://localhost:8080/area/"+ID+"/delete")
+            //window.location.href = "http://www.w3schools.com";
+        }
+    </script>
+    <!------------------------------------------------------------------------------------->
+<!----------------------------------Delete--------------------------------------------------->
+<div id="id02" class="modal">
+    <form class="modal-content" action="#">
+        <div class="container">
+            <h1>Delete project</h1>
+            <p>Are you sure you want to delete This Area?</p>
+
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="button button2">Cancel</button>
+                <button type="button" onclick="delete_thatproject();document.getElementById('id02').style.display='none'" class="button button3">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    ID=null;
+    var doWithThisElementproject=function(id){
+        ID=id;
+    }
+
+    var delete_thatproject=function(){
+        //alert(ID)/project/{id}/delete
+        location.replace("http://localhost:8080/project/"+ID+"/delete")
+        //window.location.href = "http://www.w3schools.com";
+    }
+</script>
+<!------------------------------------------------------------------------------------->
+
+
+    <script>
+        var openCriteria=function(id){
+            location.replace("http://localhost:8080/analyses?id="+id)
+        }
+
+        var AddArea=function(id){
+            //alert(ID)/project/{id}/delete
+            location.replace("http://localhost:8080/area_add?id="+id)
+            //window.location.href = "http://www.w3schools.com";
+        }
+        var openArea=function(id){
+            //alert(ID)/project/{id}/delete
+            location.replace("http://localhost:8080/area_open?id="+id)
+            //window.location.href = "http://www.w3schools.com";
+        }
+
+    </script>
+
+</body>
+</html>
