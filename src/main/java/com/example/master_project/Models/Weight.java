@@ -214,23 +214,23 @@ public class Weight {
 
     public  List<Double> getList() {
         List<Double> list=new ArrayList<>();
-        list.add( Speed_of_construction);
-        list.add( Availability_of_Equipment);
-        list.add( Effect_of_construction_on_design);
-        list.add( Budget_Cost);
-        list.add( Availability_of_material);
-        list.add( degree_of_Risk_during_construction);
-        list.add( latest_technology_forWorld_vision);
-        list.add( cost_of_maintenace);
-        list.add( Life_cycle_cost);
-        list.add( Availability_of_skilled_manpower);
-        list.add( Ease_of_Maintenance);
-        list.add( Contractor_experience_and_capabilities);
-        list.add( Diversion_cost_of_Existing_utilities);
-        list.add( future_extension);
-        list.add( Aesthetics_of_bridge);
-        list.add( difficulty_in_logestics);
-        list.add( communication_complexity_level_bewteen_Different_parties);
+        list.add( getSpeed_of_construction());
+        list.add( getAvailability_of_Equipment());
+        list.add( getEffect_of_construction_on_design());
+        list.add( getBudget_Cost());
+        list.add( getAvailability_of_material());
+        list.add( getDegree_of_Risk_during_construction());
+        list.add( getLatest_technology_forWorld_vision());
+        list.add( getCost_of_maintenace());
+        list.add( getLife_cycle_cost());
+        list.add( getAvailability_of_skilled_manpower());
+        list.add( getEase_of_Maintenance());
+        list.add( getContractor_experience_and_capabilities());
+        list.add( getDiversion_cost_of_Existing_utilities());
+        list.add( getFuture_extension());
+        list.add( getAesthetics_of_bridge());
+        list.add( getDifficulty_in_logestics());
+        list.add( getCommunication_complexity_level_bewteen_Different_parties());
         return list;
     }
 

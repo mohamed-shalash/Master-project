@@ -26,7 +26,7 @@ public class aeaControllers {
     List<Weight> Cerateria_values;
     Weight weights;
 
-    Topsis topsis=new Topsis();
+    Topsis topsis;
 
     @RequestMapping(value = "/area/addNew",method = {RequestMethod.GET,RequestMethod.POST})
     private String addNewStudent(Area area){
@@ -114,6 +114,7 @@ public class aeaControllers {
         *
         * */
         List<Criteria> clist=new config().criteria;
+        topsis =new Topsis();
 
         for (int j=0;j<Cerateria_values.size();j++) {
             Alternative alternative=new Alternative();
@@ -121,18 +122,28 @@ public class aeaControllers {
                 alternative.addCriteriaValue(new CriteriaValue(new Criteria(clist.get(i).getName(),weights.getList().get(i)),
                         Cerateria_values.get(j).getList().get(i)));
             }
+            alternative.setName(methods.get(j));
             topsis.addAlternative(alternative);
         }
 
-        try{
+       try{
             System.out.println(topsis.calculateOptimalSolutionSortedList());
-            topsis.writeResultsIntoCSVFile("C:\\Users\\tshal\\Desktop","koko");
+            topsis.writeResultsIntoCSVFile("E:\\","koko");
 
         }catch (Exception ex){
             System.out.println(ex);
         }
-        topsis=new Topsis();
-        return "Result";
+
+       try{
+           List<Alternative> result=topsis.calculateOptimalSolutionSortedList();
+           for(Alternative alt:result){
+               System.out.println(alt.getName()+" "+alt.getCalculatedPerformanceScore());
+           }
+       }catch(Exception ex){
+           System.out.println("can't print result");
+       }
+
+       return "Result";
     }
 
     @RequestMapping(value = "/{counter}/{id}/Area_areaId",method = {RequestMethod.GET,RequestMethod.POST})

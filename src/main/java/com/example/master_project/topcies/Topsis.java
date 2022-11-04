@@ -102,13 +102,17 @@ public class Topsis {
 				new FileOutputStream(path + fileName + ".csv"), UTF_8));
 
 		StringBuilder header = new StringBuilder();
-		header.append("Alternative name").append(";")
+		header.append("Alternative name").append(",")
 				.append("Criteria values").append("\n");
 
 		writer.write(header.toString());
 
 		for (Alternative alternative : this.alternatives) {
-				writer.write(alternative.getName() + ";" + alternative.getCriteriaValues().toString() + "\n");
+
+				writer.write(alternative.getName()  );
+				for(CriteriaValue cv:alternative.getCriteriaValues())
+		        	writer.write(","+cv.getValue());
+				writer.write("\n");
 		}
 		
 		writer.close();
@@ -127,7 +131,7 @@ public class Topsis {
 	private boolean hasIncompleteAlternativeCriteria() {
 		criteria = new ArrayList<Criteria>();
 		for (Alternative alternative : alternatives) {
-			
+
 			//Alternatives cannot have null criteria values
 			if (alternative.getCriteriaValues() == null || alternative.getCriteriaValues().size() == 0) {
 				return false;
@@ -147,11 +151,13 @@ public class Topsis {
 			}
 			
 			//And same criteria object
-			for (CriteriaValue cv : alternative.getCriteriaValues()) {
-				if (cv.getCriteria() == null || !criteria.contains(cv.getCriteria())) {
-					return false;
-				}
-			}
+//			for (CriteriaValue cv : alternative.getCriteriaValues()) {
+//				System.out.println(criteria.contains(cv.getCriteria()));
+//				if (cv.getCriteria() == null || !criteria.contains(cv.getCriteria())) {
+//					System.out.println("3");
+//					return false;
+//				}
+//			}
 		}
 		return true;
 	}

@@ -24,6 +24,7 @@ public class config {
             criteria.add(new Criteria("future extension",5.3));
             criteria.add(new Criteria("Aesthetics of bridge",4.87));
             criteria.add(new Criteria("difficulty in logistics",4.58));
+            criteria.add(new Criteria("communication complexity level bewteen Different parties",3.72));
         }
 
 }
