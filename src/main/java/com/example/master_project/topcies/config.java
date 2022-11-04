@@ -5,9 +5,9 @@ import java.util.List;
 
 public class config {
 
-        List<Criteria> criteria=new ArrayList<>();
+        public List<Criteria> criteria=new ArrayList<>();
 
-        config(){
+        public config(){
             criteria.add(new Criteria("speed of construction",7.03));
             criteria.add(new Criteria("availability of equipment",6.88));
             criteria.add(new Criteria("Effect of construction on design",6.73));

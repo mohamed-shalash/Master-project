@@ -1,5 +1,8 @@
 package com.example.master_project.Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Weight {
     Double Speed_of_construction;
     Double Availability_of_Equipment;
@@ -207,4 +210,28 @@ public class Weight {
     public void setMethod(String method) {
         this.method = method;
     }
+
+
+    public  List<Double> getList() {
+        List<Double> list=new ArrayList<>();
+        list.add( Speed_of_construction);
+        list.add( Availability_of_Equipment);
+        list.add( Effect_of_construction_on_design);
+        list.add( Budget_Cost);
+        list.add( Availability_of_material);
+        list.add( degree_of_Risk_during_construction);
+        list.add( latest_technology_forWorld_vision);
+        list.add( cost_of_maintenace);
+        list.add( Life_cycle_cost);
+        list.add( Availability_of_skilled_manpower);
+        list.add( Ease_of_Maintenance);
+        list.add( Contractor_experience_and_capabilities);
+        list.add( Diversion_cost_of_Existing_utilities);
+        list.add( future_extension);
+        list.add( Aesthetics_of_bridge);
+        list.add( difficulty_in_logestics);
+        list.add( communication_complexity_level_bewteen_Different_parties);
+        return list;
+    }
+
 }

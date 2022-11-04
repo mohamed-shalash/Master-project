@@ -5,7 +5,7 @@ import com.example.master_project.Models.Methedology;
 import com.example.master_project.Models.Project;
 import com.example.master_project.Models.Weight;
 import com.example.master_project.Servlets.areaService;
-import com.example.master_project.topcies.Topsis;
+import com.example.master_project.topcies.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -104,7 +104,7 @@ public class aeaControllers {
     @GetMapping("/result")
     private String Result(int id,Model model){
         /*
-        1.Cerateria_values  List<Weight>
+        1.Certeria_values  List<Weight> rad values
         2.weights  List<Weight>
         3.methods
         */
@@ -113,10 +113,25 @@ public class aeaControllers {
         /*
         *
         * */
+        List<Criteria> clist=new config().criteria;
 
+        for (int j=0;j<Cerateria_values.size();j++) {
+            Alternative alternative=new Alternative();
+            for (int i = 0; i < 17; i++) {//[]
+                alternative.addCriteriaValue(new CriteriaValue(new Criteria(clist.get(i).getName(),weights.getList().get(i)),
+                        Cerateria_values.get(j).getList().get(i)));
+            }
+            topsis.addAlternative(alternative);
+        }
 
+        try{
+            System.out.println(topsis.calculateOptimalSolutionSortedList());
+            topsis.writeResultsIntoCSVFile("C:\\Users\\tshal\\Desktop","koko");
 
-
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+        topsis=new Topsis();
         return "Result";
     }
 
