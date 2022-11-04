@@ -5,7 +5,7 @@
     <title>Project</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="confirmdelete.css">
-    <link rel="stylesheet" href="Card.css">
+    <link rel="stylesheet" href="card.css">
 </head>
 <body>
 <p style="font-size: 40px;">Information Phase</p>
@@ -13,14 +13,14 @@
 
 <div th:object="${project}"  style="display: block;width: 70%; ">
 
-    <p style="float:left;">Id :</p>  <p th:text=" *{id}" style="float: left;">id</p><br>
-    <p style="float:left;">Name :</p>   <p th:text=" *{name}" style="float: left;">Name</p><br>
-    <p style="float:left;">Owner :</p>   <p th:text=" *{owner}" style="float: left;">Owner</p><br>
-    <p style="float:left;">Country :</p>   <p th:text=" *{Country}" style="float: left;">contry</p><br>
-    <p style="float:left;">City :</p>  <p th:text=" *{city}" style="float: left;"> city  </p><br>
-    <p style="float:left;">Street :</p>  <p th:text=" *{street}" style="float: left;"> street  </p><br>
-    <p style="float:left;">Date :</p>     <p  th:text=" *{date}" style="float: left;">   </p><br>
-    <p style="float:left;">Description :</p>    <p  th:text=" *{ description}" style="float: left;">   </p> <br>
+    <p style="float:left;padding-left: 20px;padding-right: 20px;">Id :</p>  <p th:text=" *{id}" style="float: left;">id</p><br>
+    <p style="float:left;padding-left: 20px;padding-right: 20px;">Name :</p>   <p th:text=" *{name}" style="float: left;">Name</p><br>
+    <p style="float:left;padding-left: 20px;padding-right: 20px;">Owner :</p>   <p th:text=" *{owner}" style="float: left;">Owner</p><br>
+    <p style="float:left;padding-left: 20px;padding-right: 20px;">Country :</p>   <p th:text=" *{Country}" style="float: left;">contry</p><br>
+    <p style="float:left;padding-left: 20px;padding-right: 20px;">City :</p>  <p th:text=" *{city}" style="float: left;"> city  </p><br>
+    <p style="float:left;padding-left: 20px;padding-right: 20px;">Street :</p>  <p th:text=" *{street}" style="float: left;"> street  </p><br>
+    <p style="float:left;padding-left: 20px;padding-right: 20px;">Date :</p>     <p  th:text=" *{date}" style="float: left;">   </p><br>
+    <p style="float:left;padding-left: 20px;padding-right: 20px;">Description :</p>    <p  th:text=" *{ description}" style="float: left;">   </p> <br>
 
 
     <button th:id="*{id}" class="button button1" onclick="AddArea(this.id)">Add Area</button>

@@ -3,14 +3,18 @@ package com.example.master_project.Controllers;
 import com.example.master_project.Models.Area;
 import com.example.master_project.Models.Methedology;
 import com.example.master_project.Models.Project;
+import com.example.master_project.Models.Weight;
 import com.example.master_project.Servlets.areaService;
+import com.example.master_project.topcies.Topsis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +23,10 @@ public class aeaControllers {
 
     @Autowired
     public areaService areaService;
+    List<Weight> Cerateria_values;
+    Weight weights;
+
+    Topsis topsis=new Topsis();
 
     @RequestMapping(value = "/area/addNew",method = {RequestMethod.GET,RequestMethod.POST})
     private String addNewStudent(Area area){
@@ -72,5 +80,74 @@ public class aeaControllers {
         model.addAttribute("way", methedology);
         return "constracts";
     }
+
+    @GetMapping("/processing")
+    private String area_page(int id,int counter,int state,String method,Model model){
+        Area area = areaService.GetOne(id).get();
+        model.addAttribute("area", area);
+        model.addAttribute("new_num", counter+1);
+        model.addAttribute("x", state);
+        model.addAttribute("method", method);
+        model.addAttribute("weight", weights);
+
+        List<String> methods = areaService.Fitted(area);
+
+        for (int i=0;i< Cerateria_values.size();i++){
+            Cerateria_values.get(i).setMethod(methods.get(i));
+        }
+        //model.addAttribute("methods", methods);
+        model.addAttribute("names", Cerateria_values);
+
+        return "processing";
+    }
+
+    @GetMapping("/result")
+    private String Result(int id,Model model){
+        /*
+        1.Cerateria_values  List<Weight>
+        2.weights  List<Weight>
+        3.methods
+        */
+        Area area = areaService.GetOne(id).get();
+        List<String> methods = areaService.Fitted(area);
+        /*
+        *
+        * */
+
+
+
+
+        return "Result";
+    }
+
+    @RequestMapping(value = "/{counter}/{id}/Area_areaId",method = {RequestMethod.GET,RequestMethod.POST})
+    private String processing(@PathVariable int counter, @PathVariable int id, Weight weight, Model model) {
+
+        Area area = areaService.GetOne(id).get();
+        List<String> methods = areaService.Fitted(area);
+
+        model.addAttribute("area", area);
+
+
+
+        if (counter == methods.size()+1) {
+            Cerateria_values.add(weight);
+            return "redirect:/result?id="+id;
+        } else if (counter == 0) {
+            Cerateria_values = new ArrayList<>();
+
+            return "redirect:/processing?id="+id+"&counter="+counter+"&state="+1+"&method=weight";
+        } else if (counter == 1) {
+            weights=weight;
+            //weight.getall();
+            return "redirect:/processing?id="+id+"&counter="+counter+"&state="+0+"&method="+methods.get(counter-1);
+        } else {
+            Cerateria_values.add(weight);
+            //System.out.println("here " + counter);
+            model.addAttribute("methods", methods.get(counter-1));
+            return "redirect:/processing?id="+id+"&counter="+counter+"&state="+0+"&method="+methods.get(counter-1);
+        }
+
+ }
 
 }

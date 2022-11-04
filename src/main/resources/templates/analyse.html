@@ -5,7 +5,7 @@
     <title>Project</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="confirmdelete.css">
-    <link rel="stylesheet" href="Card.css">
+    <link rel="stylesheet" href="card.css">
     <style>
         table {
           width: 100%;
@@ -58,7 +58,16 @@
         </div>
     </form>
 </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div  th:object="${area}">
+    <a th:id="*{id}" onclick="openthings(this.id)" class="button button2" style="display: block;width:fit-content;float:right;">Next</a>
+</div>
 
+<script>
+    var openthings=function(id){
+        location.replace("http://localhost:8080/0/"+id+"/Area_areaId")//+"&count=0"
+    }
+</script>
 
 </body>
 </html>

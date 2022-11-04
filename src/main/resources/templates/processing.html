@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>processing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="card.css">
+    <style>
+        body{
+            color: white;
+            font-size: 25px;
+        }
+        .custom-select{
+            width: 51%;
+            display: block;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div  th:each="c :${area}">
+
+        <form action="#" style="margin-top: 10px">
+            <fieldset>
+                <legend th:text="${method}" ></legend>
+                <p style="margin-top: 15px;margin-bottom: 10px" th:text="${x}?'Please enter the weights of the criteria shown below or use these default weights':'Please rank the following criteria with respect to each construction system.'"></p>
+
+                <div class="grid-container">
+                    <div class="grid-child purple">
+                        <label for="Speed_of_construction" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Speed of construction</label>
+                        <label for="Availability_of_Equipment" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Availability of Equipment</label>
+                        <label for="Effect_of_construction_on_design" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Effect of construction on design</label>
+                        <label for="Budget_Cost" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Budget Cost</label>
+                        <label for="Availability_of_material" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Availability of material</label>
+                        <label for="degree_of_Risk_during_construction" style="display: block;height:63px;width: 90%; float: right;text-align: right;">degree of Risk during construction</label>
+                        <label for="latest_technology_forWorld_vision" style="display: block;height:63px;width: 90%; float: right;text-align: right;">latest technology for World's vision</label>
+                        <label for="cost_of_maintenace" style="display: block;height:63px;width: 90%; float: right;text-align: right;">cost of maintenace</label>
+                        <label for="Life_cycle_cost" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Life cycle cost</label>
+                        <label for="Availability_of_skilled_manpower" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Availability of skilled manpower</label>
+                        <label for="Ease_of_Maintenance" style="display: block;height:52px;width: 90%; float: right;text-align: right;">Ease of Maintenance</label>
+                        <label for="Contractor_experience_and_capabilities" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Contractor experience and capabilities</label>
+                        <label for="Diversion_cost_of_Existing_utilities" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Diversion cost of Existing utilities</label>
+                        <label for="future_extension" style="display: block;height:63px;width: 90%; float: right;text-align: right;">future extension</label>
+                        <label for="Aesthetics_of_bridge" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Aesthetics of bridge</label>
+                        <label for="difficulty_in_logestics" style="display: block;height:63px;width: 90%; float: right;text-align: right;">difficulty in logestics</label>
+                        <label for="communication_complexity_level_bewteen_Different_parties" style="display: block;height:63px;width: 90%; float: right;text-align: right;">communication complexity level bewteen Different parties </label>
+
+                    </div>
+
+                    <div class="grid-child green">
+                        <div class="grid-child purple">
+                            <!--<input type="number" min="0" max="9"" min="1" max="5">-->
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Speed_of_construction" id="Speed_of_construction" class="custom-select" th:value="${x} ? 7.03 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Availability_of_Equipment" id="Availability_of_Equipment" class="custom-select" th:value="${x} ? 6.88 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Effect_of_construction_on_design" id="Effect_of_construction_on_design" class="custom-select" th:value="${x} ? 6.73 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Budget_Cost" id="Budget_Cost" class="custom-select" th:value="${x} ? 6.73 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Availability_of_material" id="Availability_of_material" class="custom-select" th:value="${x} ? 6.45 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="degree_of_Risk_during_construction" id="degree_of_Risk_during_construction" class="custom-select" th:value="${x} ? 6.16 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="latest_technology_forWorld_vision" id="latest_technology_forWorld_vision" class="custom-select" th:value="${x} ? 6.16 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="cost_of_maintenace" id="cost_of_maintenace" class="custom-select" th:value="${x} ? 6.02 : ''" />
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Life_cycle_cost" id="Life_cycle_cost" class="custom-select" th:value="${x} ? 6.02 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Availability_of_skilled_manpower" id="Availability_of_skilled_manpower" class="custom-select" th:value="${x} ? 6.02 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Ease_of_Maintenance" id="Ease_of_Maintenance" class="custom-select" th:value="${x} ? 5.87 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Contractor_experience_and_capabilities" id="Contractor_experience_and_capabilities" class="custom-select" th:value="${x} ? 5.87 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Diversion_cost_of_Existing_utilities" id="Diversion_cost_of_Existing_utilities" class="custom-select" th:value="${x} ? 5.59 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="future_extension" id="future_extension" class="custom-select" th:value="${x} ?5.3 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="Aesthetics_of_bridge" id="Aesthetics_of_bridge" class="custom-select" th:value="${x} ? 4.87 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="difficulty_in_logestics" id="difficulty_in_logestics" class="custom-select" th:value="${x} ? 4.58 : ''"/>
+                            <input  type="number" min="0" th:max="${x}?'':9" name="communication_complexity_level_bewteen_Different_parties" id="communication_complexity_level_bewteen_Different_parties" class="custom-select" th:value="${x} ?3.72 : ''" />
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-container">
+
+                    <div  class="grid-child green">
+                        <a th:id="${c.id}" onclick="set_weights(this.id)" class="button button2" style="display: block;width:fit-content;">Next</a>
+                    </div>
+                    <div  class="grid-child purple">
+                        <a th:id="${c.id}" onclick="back(this.id)" class="button button2" style="float: right">Back</a>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div >
+                    <div style="display: inline">
+                        <p th:text="weight" style="color: black"></p>
+                        <div  th:each="c :${weight}" >
+                            <h3><p>Speed_of_construction :</p><p th:text="${c.Speed_of_construction}"></p></h3>
+                            <h3><p>Availability_of_Equipment :</p><p th:text="${c.Availability_of_Equipment}"></p></h3>
+                            <h3><p>Effect_of_construction_on_design :</p><p th:text="${c.Effect_of_construction_on_design}"></p></h3>
+                            <h3><p>Budget_Cost :</p><p th:text="${c.Budget_Cost}"></p></h3>
+
+                            <h3><p>Availability_of_material :</p><p th:text="${c.Availability_of_material}"></p></h3>
+                            <h3><p>degree_of_Risk_during_construction :</p><p th:text="${c.latest_technology_forWorld_vision}"></p></h3>
+                            <h3><p>latest_technology_forWorld_vision :</p><p th:text="${c.Budget_Cost}"></p></h3>
+                            <h3><p>cost_of_maintenace :</p><p th:text="${c.cost_of_maintenace}"></p></h3>
+
+                            <h3><p>Life_cycle_cost :</p><p th:text="${c.Life_cycle_cost}"></p></h3>
+                            <h3><p>Availability_of_skilled_manpower :</p><p th:text="${c.Availability_of_skilled_manpower}"></p></h3>
+                            <h3><p>Ease_of_Maintenance :</p><p th:text="${c.Ease_of_Maintenance}"></p></h3>
+                            <h3><p>Contractor_experience_and_capabilities :</p><p th:text="${c.Contractor_experience_and_capabilities}"></p></h3>
+
+                            <h3><p>Diversion_cost_of_Existing_utilities :</p><p th:text="${c.Diversion_cost_of_Existing_utilities}"></p></h3>
+                            <h3><p>future_extension :</p><p th:text="${c.future_extension}"></p></h3>
+                            <h3><p>Aesthetics_of_bridge :</p><p th:text="${c.Aesthetics_of_bridge}"></p></h3>
+                            <h3><p>difficulty_in_logestics :</p><p th:text="${c.difficulty_in_logestics}"></p></h3>
+                            <h3><p>communication_complexity_level_bewteen_Different_parties :</p><p th:text="${c.communication_complexity_level_bewteen_Different_parties}"></p></h3>
+
+                        </div>
+                    </div>
+
+                    <div  th:each="c :${names}" >
+                        <h2 th:text="${c.method}" style="color: black"></h2>
+                        <h3><p>Speed_of_construction :</p><p th:text="${c.Speed_of_construction}"></p></h3>
+                        <h3><p>Availability_of_Equipment :</p><p th:text="${c.Availability_of_Equipment}"></p></h3>
+                        <h3><p>Effect_of_construction_on_design :</p><p th:text="${c.Effect_of_construction_on_design}"></p></h3>
+                        <h3><p>Budget_Cost :</p><p th:text="${c.Budget_Cost}"></p></h3>
+
+                        <h3><p>Availability_of_material :</p><p th:text="${c.Availability_of_material}"></p></h3>
+                        <h3><p>degree_of_Risk_during_construction :</p><p th:text="${c.latest_technology_forWorld_vision}"></p></h3>
+                        <h3><p>latest_technology_forWorld_vision :</p><p th:text="${c.Budget_Cost}"></p></h3>
+                        <h3><p>cost_of_maintenace :</p><p th:text="${c.cost_of_maintenace}"></p></h3>
+
+                        <h3><p>Life_cycle_cost :</p><p th:text="${c.Life_cycle_cost}"></p></h3>
+                        <h3><p>Availability_of_skilled_manpower :</p><p th:text="${c.Availability_of_skilled_manpower}"></p></h3>
+                        <h3><p>Ease_of_Maintenance :</p><p th:text="${c.Ease_of_Maintenance}"></p></h3>
+                        <h3><p>Contractor_experience_and_capabilities :</p><p th:text="${c.Contractor_experience_and_capabilities}"></p></h3>
+
+                        <h3><p>Diversion_cost_of_Existing_utilities :</p><p th:text="${c.Diversion_cost_of_Existing_utilities}"></p></h3>
+                        <h3><p>future_extension :</p><p th:text="${c.future_extension}"></p></h3>
+                        <h3><p>Aesthetics_of_bridge :</p><p th:text="${c.Aesthetics_of_bridge}"></p></h3>
+                        <h3><p>difficulty_in_logestics :</p><p th:text="${c.difficulty_in_logestics}"></p></h3>
+                        <h3><p>communication_complexity_level_bewteen_Different_parties :</p><p th:text="${c.communication_complexity_level_bewteen_Different_parties}"></p></h3>
+
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+</div>
+
+<script th:inline="javascript">
+
+    var set_weights=function(id){
+        /*<![CDATA[*/
+        var message = /*[[${new_num}]]*/ 'default';
+        console.log(message);
+        /*]]>*/
+
+        /*<![CDATA[*/
+        var method = /*[[${method}]]*/ 'default';
+        console.log(method);
+        /*]]>*/
+
+        var Speed_of_construction = document.getElementById('Speed_of_construction').value;
+        var Availability_of_Equipment = document.getElementById('Availability_of_Equipment').value;
+        var Effect_of_construction_on_design = document.getElementById('Effect_of_construction_on_design').value;
+        var Budget_Cost = document.getElementById('Budget_Cost').value;
+        var Availability_of_material = document.getElementById('Availability_of_material').value;
+        var degree_of_Risk_during_construction = document.getElementById('degree_of_Risk_during_construction').value;
+        var latest_technology_forWorld_vision = document.getElementById('latest_technology_forWorld_vision').value;
+        var cost_of_maintenace = document.getElementById('cost_of_maintenace').value;
+        var Life_cycle_cost = document.getElementById('Life_cycle_cost').value;
+        var Availability_of_skilled_manpower = document.getElementById('Availability_of_skilled_manpower').value;
+        var Ease_of_Maintenance = document.getElementById('Ease_of_Maintenance').value;
+        var Contractor_experience_and_capabilities = document.getElementById('Contractor_experience_and_capabilities').value;
+        var Diversion_cost_of_Existing_utilities = document.getElementById('Diversion_cost_of_Existing_utilities').value;
+        var future_extension = document.getElementById('future_extension').value;
+        var Aesthetics_of_bridge = document.getElementById('Aesthetics_of_bridge').value;
+        var difficulty_in_logestics = document.getElementById('difficulty_in_logestics').value;
+        var communication_complexity_level_bewteen_Different_parties = document.getElementById('communication_complexity_level_bewteen_Different_parties').value;
+
+        var query ="http://localhost:8080/"+message+"/"+id+"/Area_areaId?";
+        query =query+"Speed_of_construction="+Speed_of_construction+"&Availability_of_Equipment="+Availability_of_Equipment;
+        query =query+"&Effect_of_construction_on_design="+Effect_of_construction_on_design+"&Budget_Cost="+Budget_Cost+"&Availability_of_material="+Availability_of_material;
+        query =query+"&degree_of_Risk_during_construction="+degree_of_Risk_during_construction;
+        query =query+"&latest_technology_forWorld_vision="+latest_technology_forWorld_vision+"&cost_of_maintenace="+cost_of_maintenace;
+        query =query+"&Life_cycle_cost="+Life_cycle_cost+"&Availability_of_skilled_manpower="+Availability_of_skilled_manpower;
+        query =query+"&Ease_of_Maintenance="+Ease_of_Maintenance+"&Contractor_experience_and_capabilities="+Contractor_experience_and_capabilities;
+        query =query+"&Diversion_cost_of_Existing_utilities="+Diversion_cost_of_Existing_utilities;
+        query =query+"&future_extension="+future_extension;
+        query =query+"&Aesthetics_of_bridge="+Aesthetics_of_bridge;
+        query =query+"&difficulty_in_logestics="+difficulty_in_logestics;
+        query =query+"&communication_complexity_level_bewteen_Different_parties="+communication_complexity_level_bewteen_Different_parties;
+
+            if(Speed_of_construction==null||Speed_of_construction==""
+                ||Availability_of_Equipment==null||Availability_of_Equipment==""
+            ||Effect_of_construction_on_design==null||Effect_of_construction_on_design==""
+            ||Budget_Cost==null||Budget_Cost==""
+            ||Availability_of_material==null||Availability_of_material==""
+            ||degree_of_Risk_during_construction==null||degree_of_Risk_during_construction==""
+                ||latest_technology_forWorld_vision==null||latest_technology_forWorld_vision==""
+                ||cost_of_maintenace==null||cost_of_maintenace==""
+                ||Life_cycle_cost==null||Life_cycle_cost==""
+                ||Availability_of_skilled_manpower==null||Availability_of_skilled_manpower==""
+                ||Ease_of_Maintenance==null||Ease_of_Maintenance==""
+                ||Contractor_experience_and_capabilities==null||Contractor_experience_and_capabilities==""
+                ||Diversion_cost_of_Existing_utilities==null||Diversion_cost_of_Existing_utilities==""
+                ||future_extension==null||future_extension==""
+                ||Aesthetics_of_bridge==null||Aesthetics_of_bridge==""
+                ||difficulty_in_logestics==null||difficulty_in_logestics==""
+                ||communication_complexity_level_bewteen_Different_parties==null||communication_complexity_level_bewteen_Different_parties==""
+            ){
+            alert("Some Thing Is Wrong Make Sure All Values Are Entered");
+        }else if((
+                Speed_of_construction<0.0||Speed_of_construction>9.0
+                ||Availability_of_Equipment<0.0||Availability_of_Equipment>9.0
+                ||Effect_of_construction_on_design<0.0||Effect_of_construction_on_design>9.0
+                ||Budget_Cost<0.0||Budget_Cost>9.0
+                ||Availability_of_material<0.0||Availability_of_material>9.0
+                ||degree_of_Risk_during_construction<0.0||degree_of_Risk_during_construction>9.0
+                ||latest_technology_forWorld_vision<0.0||latest_technology_forWorld_vision>9.0
+                ||cost_of_maintenace<0.0||cost_of_maintenace>9.0
+                ||Life_cycle_cost<0.0||Life_cycle_cost>9.0
+                ||Availability_of_skilled_manpower<0.0||Availability_of_skilled_manpower>9.0
+                ||Ease_of_Maintenance<0.0||Ease_of_Maintenance>9.0
+                ||Contractor_experience_and_capabilities<0.0||Contractor_experience_and_capabilities>9.0
+                ||Diversion_cost_of_Existing_utilities<0.0||Diversion_cost_of_Existing_utilities>9.0
+                ||future_extension<0.0||future_extension>9.0
+                ||Aesthetics_of_bridge<0.0||Aesthetics_of_bridge>9.0
+                ||difficulty_in_logestics<0.0||difficulty_in_logestics>9.0
+                ||communication_complexity_level_bewteen_Different_parties<0.0||communication_complexity_level_bewteen_Different_parties>9.0
+            )&&method!="weight"){
+            alert("Make Sure All Values From 0-9");
+        }else if(parseFloat(Speed_of_construction)+parseFloat( Availability_of_Equipment)+parseFloat( Effect_of_construction_on_design)
+                +parseFloat(Budget_Cost)+parseFloat( Availability_of_material)+parseFloat( degree_of_Risk_during_construction )+parseFloat(latest_technology_forWorld_vision)
+                +parseFloat(cost_of_maintenace)+parseFloat( Life_cycle_cost)+parseFloat( Availability_of_skilled_manpower)
+                +parseFloat(Ease_of_Maintenance)+parseFloat( Contractor_experience_and_capabilities)+parseFloat( Diversion_cost_of_Existing_utilities)
+                +parseFloat(future_extension)+parseFloat( Aesthetics_of_bridge)+parseFloat( difficulty_in_logestics)
+                +parseFloat(communication_complexity_level_bewteen_Different_parties) !=100.0 &&method=="weight"){
+                alert("sum must equal to 100");
+        } else {
+                location.replace(query);
+            }
+    }
+</script>
+<script>
+    var back=function(id){
+        location.replace("http://localhost:8080/result2?id="+id)
+    }
+</script>
+
+</body>
+</html>
