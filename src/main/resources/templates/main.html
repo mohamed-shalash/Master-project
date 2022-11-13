@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>page 1</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="STYLE.css">
     <link rel="stylesheet" href="confirmdelete.css">
-    <link rel="stylesheet" href="Card.css">
+    <link rel="stylesheet" href="card.css">
 
 </head>
 <body>
 
-<p style="font-size: 40px;display: inline">Information Phase</p>
+<p style="font-size: 40px;display: inline">Introduction Model</p>
 
 <button class="button button1" onclick="document.getElementById('id02').style.display='block';" style="float: right;display: inline">New Project</button>
 
@@ -56,11 +56,12 @@
             <div class="grid-container "  >
                 <div class="grid-child purple" style="float: right;">
                     <div>
+                        <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Project Id</label>
                         <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Project Name</label>
                         <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Project Owner</label>
                         <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Country</label>
                         <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">City</label>
-                        <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Street</label>
+                        <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Project Address</label>
                         <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Date</label>
                         <label style="height: 150px;color: black;display: inline;width: 90%; float: right;text-align: right;">Project Description</label>
                     </div>
@@ -68,6 +69,7 @@
 
                 <div class="grid-child green">
                     <div class="grid-child purple" style="float: right;">
+                        <input style="display: inline" type="text" name="id_dummy" class="custom-select"/>
                         <input style="display: inline" type="text" name="name" class="custom-select"/>
                         <input style="display: inline" type="text" name="owner" class="custom-select"/>
                         <input style="display: inline" type="text" name="Country" class="custom-select"/>

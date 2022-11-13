@@ -17,6 +17,7 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String id_dummy;
     private String name;
     private String owner;
     private String Country;
@@ -30,8 +31,9 @@ public class Project {
     private List<Area> areas;
 
 
-    public Project(int id, String name, String owner, String country, String city, String street, String description, Date date) {
+    public Project(int id, String id_dummy, String name, String owner, String country, String city, String street, String description, Date date) {
         this.id = id;
+        this.id_dummy = id_dummy;
         this.name = name;
         this.owner = owner;
         Country = country;
@@ -41,7 +43,8 @@ public class Project {
         this.date = date;
     }
 
-    public Project(String name, String owner, String country, String city, String street, String description, Date date) {
+    public Project(String id_dummy, String name, String owner, String country, String city, String street, String description, Date date) {
+        this.id_dummy = id_dummy;
         this.name = name;
         this.owner = owner;
         Country = country;
@@ -61,6 +64,14 @@ public class Project {
 
     public Date getDate() {
         return date;
+    }
+
+    public String getId_dummy() {
+        return id_dummy;
+    }
+
+    public void setId_dummy(String id_dummy) {
+        this.id_dummy = id_dummy;
     }
 
     public void setDate(Date date) {

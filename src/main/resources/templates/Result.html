@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>processing</title>
+    <link rel="stylesheet" href="STYLE.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="card.css">
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        #customers tr:nth-child(odd){background-color: #a8a1a1;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<p style="font-size: 40px;">analytical Phase</p>
+<div  >
+    <br>
+    <h1>Performance score table</h1>
+    <br> <br> <br>
+    <table id="customers">
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+        <tr th:each="c :${result}">
+            <td><p th:text="${c.name}"></p></td>
+            <td><p th:text="${c.calculatedPerformanceScore}"></p></td>
+        </tr>
+
+    </table>
+    <br> <br> <br>
+
+    <div class="grid-container">
+
+        <div  class="grid-child green">
+            <a th:id="${id}" onclick="back(this.id)" class="button button2" style="float: left">Back</a>
+
+        </div>
+        <div  class="grid-child purple">
+            <a th:id="${id}" onclick="set_weights(this.id)" class="button button2" style="float: right;display: block;width:fit-content;">Next</a>
+        </div>
+    </div>
+
+    <div style="width: 100%;">
+        <p style="margin-top: 15px;margin-bottom: 10px;text-align: left;">
+            Hint:
+            Multi criteria decision making analysis, TOPSIS method, was used during the analytical phase computer model to select the most suitable construction system according to a
+            set of criteria.
+        </p>
+    </div>
+
+</div>
+<script  th:inline="javascript">
+    var back=function(id){
+        //location.replace("http://localhost:8080/")
+        location.replace("http://localhost:8080/result2?id="+id)
+    }
+    var set_weights=function(id){
+        /*<![CDATA[*/
+        var name = /*[[${namex}]]*/ 'default';
+        /*]]>*/
+
+        /*<![CDATA[*/
+        var score = /*[[${scorex}]]*/ 'default';
+        /*]]>*/
+        location.replace("http://localhost:8080/FinalResult?bestmodel="+name+"&score="+id)
+    }
+</script>
+
+</body>
+</html>

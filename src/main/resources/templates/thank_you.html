@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="STYLE.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="card.css">
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        html {
+            display: table;
+            margin: auto;
+        }
+
+        body {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<p style="font-size: 40px;">thank you</p>
+<br><br><br><br><br><br><br>
+<a th:id="${Id}" onclick="back(this.id)" class="button button2" style="float:left;">Back</a>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var bestmodel = /*[[${bestmodel}]]*/ 'default';
+    console.log(bestmodel);
+    /*]]>*/
+    /*<![CDATA[*/
+    var Score = /*[[${Id}]]*/ 'default';
+    console.log(Score);
+    /*]]>*/
+
+    var back=function(id){
+        location.replace("http://localhost:8080/FinalResult?bestmodel="+bestmodel+"&score="+Score)
+    }
+</script>
+
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Project</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="STYLE.css">
     <link rel="stylesheet" href="confirmdelete.css">
-    <link rel="stylesheet" href="Card.css">
+    <link rel="stylesheet" href="card.css">
     <style>
         table {
           width: 100%;
@@ -16,7 +16,7 @@
 <body>
 <p style="font-size: 40px;">analytical Phase</p>
 <div  th:object="${area}">
-    <a th:id="*{projectid}" onclick="openArea(this.id)" class="button button2" style="float: left;">back</a>
+    <a th:id="*{id}" onclick="openArea(this.id)" class="button button2" style="float: left;">back</a>
 
     <table >
         <tr>
@@ -45,7 +45,7 @@
 
     <script>
         var openArea=function(id){
-            location.replace("http://localhost:8080/project_findById?id="+id)
+            location.replace("http://localhost:8080/result1?id="+id)
         }
     </script>
 </div>
@@ -56,9 +56,31 @@
 
             <h3 style="color: white;" th:text="*{c}"><p> </p></h3>
         </div>
+
+
+
     </form>
 </div>
 
+<div  class="loader"   th:unless="${ERR}">
+    <form method="#" class="card" >
+        <div  class="container" style="align-content: center;">
+
+            <h3 style="color: white;"><p>NO Construction System match your Inputs </p></h3>
+        </div>
+    </form>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div th:if="${ERR}">
+    <div  th:object="${area}">
+        <a th:id="*{id}" onclick="openthings(this.id)" class="button button2" style="display: block;width:fit-content;float:right;">Next</a>
+    </div>
+</div>
+<script>
+    var openthings=function(id){
+        location.replace("http://localhost:8080/0/"+id+"/Area_areaId")//+"&count=0"
+    }
+</script>
 
 </body>
 </html>
