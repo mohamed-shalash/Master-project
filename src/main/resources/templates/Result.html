@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>processing</title>
-    <link rel="stylesheet" href="STYLE.css">
-    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="confirmdelet.css">
     <link rel="stylesheet" href="card.css">
     <style>
         #customers {
@@ -33,15 +33,15 @@
     </style>
 </head>
 <body>
-<p style="font-size: 40px;">analytical Phase</p>
-<div  >
+<h1>analytical Phase</h1>
+<div  style="margin:20px;">
     <br>
-    <h1>Performance score table</h1>
+    <p style="font-size: 40px;">Performance score table</p>
     <br> <br> <br>
     <table id="customers">
         <tr>
-            <th>Name</th>
-            <th>Score</th>
+            <th style="text-align: center">Name</th>
+            <th style="text-align: center">performance score</th>
         </tr>
         <tr th:each="c :${result}">
             <td><p th:text="${c.name}"></p></td>
@@ -58,7 +58,7 @@
 
         </div>
         <div  class="grid-child purple">
-            <a th:id="${id}" onclick="set_weights(this.id)" class="button button2" style="float: right;display: block;width:fit-content;">Next</a>
+            <a th:id="${id}" onclick="set_weights(this.id)" class="button button1" style="float: right;display: block;width:fit-content;">Next</a>
         </div>
     </div>
 

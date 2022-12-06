@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Project</title>
-    <link rel="stylesheet" href="STYLE.css">
-    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="confirmdelet.css">
     <link rel="stylesheet" href="card.css">
 </head>
 <body>
 <p style="font-size: 40px;">Information Phase</p>
-<a href="/" class="button button2" style="float: right;display:block;">back</a>
+<div style="margin: 20px;">
+<!--<a href="/" class="button button2" style="float: right;display:block;">back</a>-->
 
 <div th:object="${project}"  style="display: block;width: 70%; ">
 
@@ -29,22 +30,27 @@
 
 </div>
 <hr style="width:100%;text-align:left;margin-left:1%;margin-right: 20%;margin-top: 1.5%;margin-bottom: 2%;"/>
-<div >
+    <table style="width: 100%">
+        <tr><td>
+    <div >
+    <div  class="loader2"  th:each="c : ${project.areas}">
+        <form method="#" class="card2" style="display: block">
+            <div  class="container2" style="align-content: center">
 
-    <div  class="loader"  th:each="c : ${project.areas}">
-        <form method="#" class="card" >
-            <div  class="container" style="align-content: center">
+                <p th:text="${c.name}"></p><br>
 
-                <p th:text="${c.name}"></p><br><br>
-
-                
                 <a th:id="${c.id}" onclick="openArea(this.id)" class="button button1" >Open Area</a>
                 <a th:id="${c.id}" onclick="openCriteria(this.id)" class="button button1" >Continue</a>
                 <a th:id="${c.id}" class="button button3" onclick="document.getElementById('id01').style.display='block';doWithThisElement(this.id);">Delete</a>
             </div>
         </form>
     </div>
-</div>
+
+</div></td></tr>
+        <tr><td>
+            <a href="/" class="button button2" style="float: left;display:block;">back</a>
+        </td></tr>
+    </table>
     <!----------------------------------Delete--------------------------------------------------->
     <div id="id01" class="modal">
         <form class="modal-content" action="#">
@@ -136,6 +142,6 @@
         }
 
     </script>
-
+</div>
 </body>
 </html>

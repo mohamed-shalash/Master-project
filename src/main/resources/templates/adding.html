@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
-    <link rel="stylesheet" href="STYLE.css">
-    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="confirmdelet.css">
     <link rel="stylesheet" href="card.css">
 </head>
 <body>
 
-<form action="#" th:object="${area}">
-    <a th:id="*{projectid}" onclick="back_adding(this.id)" class="button button2" style="float: left;">back</a>
+<form action="#" th:object="${area}" style="margin: 20px">
+
 
     <p style="font-size: 40px">Information Pahse Con't</p>
    <!-- <div style="opacity: 0" th:value="*{projectid}" name="projectid"> </div>
@@ -116,7 +116,9 @@
             </div>
             </div>
         </div>
-        <div class="grid-child purple"></div>
+        <div class="grid-child purple">
+            <a th:id="*{projectid}" onclick="back_adding(this.id)" class="button button2" style="float: left;">back</a>
+        </div>
         <div  class="grid-child green">
             <button class="button button1" formaction="/area/addNew" style="float: right;">Submit Critiria</button>
         </div>

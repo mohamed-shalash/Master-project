@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="card.css">
+    <style>
+        .box{display :none;}
+        .One{display :block;}
+    </style>
+</head>
+<body>
+<p style="font-size: 40px;">Creativity Phase</p>
+
+        <div class="grid-container" style="height: 100vh;overflow: hidden;font-weight: bold;">
+            <div class="grid-child purple" style="float: right;height: 100%;">
+                <p style="font-size: 35px;">Construction system</p>
+                <select id="Querys" onclick="changeStatus()" class="multi-select" style="margin-top: 20px;" multiple>
+                    <option value="One" selected="true">Precast Span by Span using launching Girder</option>
+                    <option value="Two">Full Span Launching Method</option>
+                    <option value="Three">Free Cantilever precast using lifting frame and formwork  </option>
+                    <option value="Four">Balanced Cantilever cast in situ using two travelers</option>
+                    <option value="Five">Balanced Cantilever precast using lifting frames</option>
+                    <option value="Sex">Precast Incremental launching</option>
+                    <option value="Seven">Cast in Situ segment using formwork supported on ground</option>
+                    <option value="Eight">Reinforced Concrete (RC) cast in situ girder</option>
+                    <option value="Nine">precast post tension girder</option>
+                    <option value="Ten">Cast in situ post tension girder</option>
+                    <option value="Eleven">Hollow core slab cast in situ</option>
+
+                </select>
+            </div>
+
+            <!------------------------------------------->
+            <div class="grid-child green" style="height: 100%;">
+                <p style="font-size: 35px;">brief description</p>
+                <div class="box One container2 card2" id="One"><h4>Span-by-span erection is the most common, simplest, and often most cost-effective construction method for precast segmental bridges. It is typically addressed to long bridges with a great number of 25-45m spans with large plan radius, and it is compatible with simply-supported and continuous spans. The maximum gradient of the bridge governs the design of the erection equipment, but a 4-5% gradient is rarely a major problem. The segment weight ranges between 30t and 150t, and the span weight ranges between 200t and more than 2000t. Although external post-tensioning facilitates segment production and enhances strand protection in the non-infrequent case of leaking joints, many span-by-span bridges have been post-tensioned with internal tendons. The span-by-span method has reached 50m spans; however, for spans longer than 45-50m or very wide, this method loses much of its appeal due to the cost and complexity of self-launching erection equipment designed to sustain the weight of an entire span of segments.</h4></div>
+                <div class="box Two container2 card2"  id="Two"><h4>Pre-casting The Full Span Construction Approach is a prevalent technique for bridge construction, particularly for High Speed Railways. It is intended for use in bridges with lengths of less than 50 meters. The full span approach entails installing one entire span of precast girders at a time when the beam launcher creates the bridge. In general, the full span technique is appropriate for bridges with spans of 20-50m and girder weights ranging from 30t to 900t; the following are major steps: The pre-cast full span method of construction (often known as FSM) is one of the quickest procedures used in bridge and viaduct building. The FSM entails casting the entire bridge span in the casting yard and delivering it to the bridge site on a specially constructed multi-axle Tire Trolley. An FSM purpose-built Launcher will be utilized at the bridge site to raise and install the entire span.</h4></div>
+                <div class="box Three container2 card2"  id="Three"><h4>Progressive placement or free cantilever with cranes or lifting frames is the most time-consuming erection technique for precast segmental bridges because of the single work location. The erection equipment can be particularly inexpensive, especially when ground cranes erect the segments throughout the length of the bridge and temporary towers support the front cantilever during erection. Progressive placement has been applied or considered for 30-90m spans in environmentally sensitive locations where construction access was restricted to one or both ends of the bridge.</h4></div>
+                <div class="box Four container2 card2"  id="Four"><h4>After the bottom infrastructure of the bridge has been built. Each pier is the starting point for bridge building. Special formwork is erected, and work on the cast-in-place pier piece begins. The entire pier length is then employed as an erection platform for cast-in-place portions, supporting a form traveller. Soffit shuttering, web shuttering, and deck shuttering are then installed on both sides of the pier. After that, both sides of the pier are concreted. For form travellers, the segment production rate is usually one segment every five days. Segments of cast-in-situ range in length from 3 to 5 meters, with formwork moving in tandem with each section. Construction of segments continues until a joining halfway is reached, at which time a balanced pair is closed.</h4></div>
+                <div class="box Five container2 card2"  id="Five"><h4>All permanent pier foundations and pier shafts in the main unit are built. The piers are utilized as an erection platform for precast parts once they are completed. First, put together and install the lifting frame. Install the first pair of precast segments, build the wet joints, cure the wet joints, and then install the second pair of precast segments. After that, you'll need to build and cure joints. This method is repeated until the construction project is completed, and then the lifting frame is removed.</h4></div>
+                <div class="box Five container2 card2"  id="Sex"><h4>Incremental launching is a procedure that involves casting portions at the crossing's end and pushing them across with huge hydraulic rams. When the piers can be easily located at regular intervals, this strategy is most useful. Depending on the span length, temporary support bents may or may not be necessary at mid-spans. To control erection stresses, a steel launching nose is usually affixed to the end of the segments. The segments are usually between 15 and 30 meters long. Unless there are additional factors to consider, incremental launching is suitable for bridge lengths of (305 to 610 m). When working space is limited, for example, bridges up to 1220 meters in length can be built by launching from both ends. There are certain limitations to examine while considering incremental launching. The horizontal and vertical alignments must be either straight or have a constant radius of curvature, preferably (76 m) or more. In addition, there must be no transitions between the top slab's crown or super height. </h4></div>
+                <div class="box Five container2 card2"  id="Seven"><h4>Cast-in-place segmental construction is used when the precast segments are too heavy to be shipped or access is too restrictive. It has been used for span lengths up to 200 m. Stationary Falsework is the most basic method of constructing a bridge superstructure. One benefit is that stationary falsework can be built to any desired shape by less specialized labor. The use of modern standard elements from which the falsework is constructed allows for simple erection. However, there are significant drawbacks to stationary falsework. Stationary falsework necessitates a large amount of material, as well as considerable time and manual labour, in addition to the cost of purchasing or renting the materials itself. As a result, believing that it must be built several spans ahead of time in order to keep up with the speeds of concrete placing that can be achieved.</h4></div>
+                <div class="box Five container2 card2"  id="Eight"><h4>Stationary Falsework is the most basic method of constructing a bridge superstructure. One benefit is that stationary falsework can be built to any desired shape by less specialized labor. The use of modern standard elements from which the falsework is constructed allows for simple erection. However, there are significant drawbacks to stationary falsework. Stationary falsework necessitates a large amount of material, as well as considerable time and manual labour, in addition to the cost of purchasing or renting the materials itself. As a result, believing that it must be built several spans ahead of time in order to keep up with the speeds of concrete placing that can be achieved.</h4></div>
+                <div class="box Five container2 card2"  id="Nine"><h4>Beam and slab bridges are the most common type used of concrete bridge nowadays. They offer simplicity, economy, a large number of standard elements, and speedy erection. The precast beams are often mounted on maintenance-free rubber bearings on the supporting piers or abutments. Then an in-situ reinforced concrete deck slab is cast on permanent shuttering that spans between the beams. In this method along with concrete and reinforcement, steel strands or tendons are also used to introduce post tensioning. the strands which have been passed through the concrete are pulled by the jack up to certain tensile force which was pre-determined. Now, the steel stands should be locked. This type of construction increases the load carrying capacity of bridge and improves the durability of bridge. Post tensioning eliminates the use of intermediate supports for long span bridges.</h4></div>
+                <div class="box Five container2 card2"  id="Ten"><h4>Cat-in-situ Post tensioning method of bridge construction is more demanding method because of its durability and applicability to complex bridge curves etc. In this method along with concrete and reinforcement, steel strands or tendons are also used to introduce post tensioning. When the formwork is prepared, strands are arranged with in the reinforcement and concrete is filled. After the hardening of concrete, the strands which have been passed through the concrete are pulled by the jack up to certain tensile force which was pre-determined. Now, the steel stands should be locked. This type of construction increases the load carrying capacity of bridge and improves the durability of bridge. Post tensioning eliminates the use of intermediate supports for long span bridges.</h4></div>
+                <div class="box Five container2 card2"  id="Eleven"><h4>In terms of modernity,this bridge is akin to a suspension bridge. In this style, instead of dangling wires,cables are connected directly to the tower. The wires are always under tension due to their attachment to the roadway, which causes them to extend. There is just one tower to handle the stress on this type of bridge, and there are no anchorages to carry the compression. A cable supported bridge has a span length of 500 to 1000 meters. In this type of bridge, the cables are directly linked to the roadway at multiple radial points, and the compression forces are handled only by the towers. The benefits of a cable-stayed bridge are that it is less expensive than a suspension bridge, that it is good for medium spans, and that it can be easily constructed by cantilevering out from the tower, but the disadvantages are that maintenance and inspection are more difficult, and that this type of bridge is not suitable for long distances.</h4></div>
+            </div>
+
+
+        <!----------------------->
+            <div class="grid-child purple" style="width: fit-content">  </div>
+            <div  class="grid-child green" th:each="c : ${area}">
+                <a class="button button1" style="float: left;display:block;">Add Construction system</a>
+                <a th:id="${c.id}" onclick="openCriteria(this.id)" class="button button1" >next</a>
+                <a href="/" class="button button2" style="float: right;display:block;">back</a>
+            </div>
+        </div>
+
+
+
+<script>
+            var openCriteria=function(id){
+                location.replace("http://localhost:8080/result1?id="+id)
+            }
+
+            function changeStatus(){
+                var status =document.getElementById("Querys");
+        
+                const x =document.getElementsByClassName("box");
+        
+                Array.prototype.forEach.call(x, child => {
+                    child.style.display="none"
+                });
+        
+                try{
+                    document.getElementById(status.value).style.display ="block";
+                }catch(ex){
+                    console.log("no value selected");
+                }
+            }
+        
+</script>
+
+
+</body>
+</html>
+
+
+
+
+

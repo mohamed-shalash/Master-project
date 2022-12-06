@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Final Result</title>
-    <link rel="stylesheet" href="STYLE.css">
-    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="confirmdelet.css">
     <link rel="stylesheet" href="card.css">
     <style>
         html, body {
-            height: 100%;
+
         }
 
         html {
@@ -23,20 +23,24 @@
     </style>
 </head>
 <body>
-<p style="font-size: 40px;">analytical Phase</p>
-<h1 id="message"></h1>
-<br><br><br><br><br>
-<div class="grid-container" style="width: 100%">
+<div>
+    <p style="font-size: 40px;float: top;">development & presentation</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h1 id="message"></h1>
+    <br><br><br><br><br>
+    <div class="grid-container" style="width: 100%">
 
-    <div  class="grid-child green">
-        <a th:id="${Id}" onclick="back(this.id)" class="button button2" style="float:left;">Back</a>
+        <div  class="grid-child green">
+            <a th:id="${Id}" onclick="back(this.id)" class="button button2" style="float:left;">Back</a>
 
-    </div>
-    <div  class="grid-child purple">
-        <a th:id="${Id}" onclick="set_weights(this.id)" class="button button2" style="float:right;display: block;width:fit-content;">Next</a>
+        </div>
+        <div  class="grid-child purple">
+            <a th:id="${Id}" onclick="about(this.id)" class="button button1" style="float:left;display: block;width:fit-content;">about</a>
+
+            <a th:id="${Id}" onclick="set_weights(this.id)" class="button button1" style="float:right;display: block;width:fit-content;">Next</a>
+        </div>
     </div>
 </div>
-
 <script th:inline="javascript">
     /*<![CDATA[*/
     var bestmodel = /*[[${bestmodel}]]*/ 'default';
@@ -52,6 +56,9 @@
         }
         var set_weights=function(id){
             location.replace("http://localhost:8080/thank_you?bestmodel="+bestmodel+"&score="+id)
+        }
+        var about=function(id){
+            location.replace("http://localhost:8080/about?bestmodel="+bestmodel+"&score="+id)
         }
 </script>
 </body>

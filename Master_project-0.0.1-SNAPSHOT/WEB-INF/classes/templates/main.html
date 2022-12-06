@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>page 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="card.css">
+
+</head>
+<body>
+
+<p style="font-size: 40px;display: inline">Information Phase</p>
+
+<button class="button button1" onclick="document.getElementById('id02').style.display='block';" style="float: right;display: inline">New Project</button>
+
+<hr style="width:100%;text-align:left;margin-left:1%;margin-right: 20%;margin-top: 1.5%;margin-bottom: 2%;"/>
+
+
+<div th:each="c : ${Project}" class="loader" style="width:98%;">
+    <form method="#" class="card" >
+        <div  class="container" style="align-content: center">
+            <!--<h3 ><p th:text="${c.id}">id</p></h3>-->
+
+            <p th:text="${c.name}">Name</p>
+            <h3 ><p th:text="${c.Country}">contry</p><p>-</p> <p th:text="${c.city}"> city </p><p>-</p>  <p th:text="${c.street}"> street  </p></h3>
+            <!--<h4><p style="color: #008CBA;" th:text="${c.description}">   </p></h4>-->
+
+            <a th:id="${c.id}" onclick="doWithThisElement(this.id)" class="button button1" >Open Project</a>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    ID=null;
+    var doWithThisElement=function(id){
+        ID=id;
+        location.replace("http://localhost:8080/project_findById?id="+id)
+    }
+
+</script>
+<!------------------------------------------------------------------------------------->
+<!----------------------------------Add--------------------------------------------------->
+<div id="id02" class="modal">
+    <form class="modal-content" action="#">
+        <div class="container">
+            <p style="font-size: 35px">Information Phase</p>
+            <!--<div style="display: block">
+                <p style="color: black;display: inline">Project ID</p>
+                <input style="display: inline" type="text" name="id" class="add_text" placeholder="Project ID" >
+            </div>-->
+
+
+
+            <div class="grid-container "  >
+                <div class="grid-child purple" style="float: right;">
+                    <div>
+                        <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Project Name</label>
+                        <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Project Owner</label>
+                        <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Country</label>
+                        <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">City</label>
+                        <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Street</label>
+                        <label style="color: black;display: inline;height:62px;width: 90%; float: right;text-align: right;">Date</label>
+                        <label style="height: 150px;color: black;display: inline;width: 90%; float: right;text-align: right;">Project Description</label>
+                    </div>
+                </div>
+
+                <div class="grid-child green">
+                    <div class="grid-child purple" style="float: right;">
+                        <input style="display: inline" type="text" name="name" class="custom-select"/>
+                        <input style="display: inline" type="text" name="owner" class="custom-select"/>
+                        <input style="display: inline" type="text" name="Country" class="custom-select"/>
+                        <input style="display: inline" type="text" name="city" class="custom-select"/>
+                        <input style="display: inline" type="text" name="street" class="custom-select"/>
+                        <input style="display: inline" type="text" name="date" class="custom-select" placeholder="dd-mm-yyyy"/>
+                        <textarea rows="4" style="display: inline;height: 150px" type="text" id="description" name="description" class="custom-select"></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="button button2">Cancel</button>
+                <input type="submit" formaction="/project/addNew" onclick="document.getElementById('id02').style.display='none'" class="button button1" value="Add"/>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<!------------------------------------------------------------------------------------->
+
+</body>
+</html>

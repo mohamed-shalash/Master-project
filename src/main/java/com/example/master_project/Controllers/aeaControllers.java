@@ -91,7 +91,7 @@ public class aeaControllers {
         model.addAttribute("x", state);
         model.addAttribute("method", method);
         model.addAttribute("weight", weights);
-
+        model.addAttribute("desc", areaService.getDescription(method));
         List<String> methods = areaService.Fitted(area);
 
         for (int i=0;i< Cerateria_values.size();i++){
@@ -163,7 +163,6 @@ public class aeaControllers {
         } else if (counter == 0) {
             weights = null;weights=new Weight();
             Cerateria_values = new ArrayList<>();
-
             return "redirect:/processing?id="+id+"&counter="+counter+"&state="+1+"&method=weight";
         } else if (counter == 1) {
             weights=weight;
@@ -183,6 +182,14 @@ public class aeaControllers {
         model.addAttribute("bestmodel", bestmodel);
         model.addAttribute("Id", score);
         return "FinalResult";
+    }
+
+    @GetMapping("/about")
+    private String about(String bestmodel,String score,Model model){
+        model.addAttribute("bestmodel", bestmodel);
+        model.addAttribute("desc", areaService.Description(bestmodel));
+        model.addAttribute("Id", score);
+        return "about";
     }
 
     @GetMapping("/thank_you")

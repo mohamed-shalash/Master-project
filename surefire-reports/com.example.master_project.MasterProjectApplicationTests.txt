@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.master_project.MasterProjectApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.034 s - in com.example.master_project.MasterProjectApplicationTests

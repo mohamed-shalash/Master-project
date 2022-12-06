@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>processing</title>
-    <link rel="stylesheet" href="STYLE.css">
-    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="confirmdelet.css">
     <link rel="stylesheet" href="card.css">
     <style>
         body{
@@ -12,72 +12,117 @@
             font-size: 25px;
         }
         .custom-select{
-            width: 51%;
+            width: 25%;
             display: block;
             font-size: 30px;
+        }
+         .hide {
+             display: none;
+         }
+
+        .myDIV:hover + .hide {
+            display: block;
+            color: black;
         }
     </style>
 </head>
 <body>
 <p style="font-size: 40px;">analytical Phase</p>
 
-<div  th:each="c :${area}">
-    <p style="margin-top: 15px;margin-bottom: 10px;float: left;display: block;width: 100%" th:text="${x}?'Please enter the weights of the criteria shown below or use the default weights':'Please rank the following criteria with respect to each construction system from 0 to 9.'"></p>
+<div  th:each="c :${area}" style="margin: 20px;">
+    <p style="margin-top: 15px;margin-bottom: 10px;float: left;display: block;width: 100%" th:text="${x}?'enter the weights of the criteria shown below or use the default weights':'Rank the following construction system with respect to the following criteria on scale 1 to 9'"></p>
 
     <form action="#" style="margin-top: 10px">
                         <fieldset>
-                <legend th:text="${method}" ></legend>
+                <legend th:text="${method}" style="font-size: 40px;"  class="myDIV"></legend>
+
+                <div th:if="${x}==0" class="hide" th:text="${desc}">I am shown when someone hovers over the div above.</div>
 
                 <div style="width: 100%;">
                     <p style="margin-top: 15px;margin-bottom: 10px;text-align: left;" th:text="${x}?'Hint : 1.the default weights are taken from a large survey of expert engineers in the bridge industry':''"></p>
                     <p style="margin-top: 15px;margin-bottom: 10px;text-align: left;" th:text="${x}?'2.the sum of weights should be 100 %':''"></p>
                 </div>
-                            <br><br>
-                <div class="grid-container" >
-                    <div class="grid-child purple">
-                        <label for="Speed_of_construction" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Speed of construction</label>
-                        <label for="Availability_of_Equipment" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Availability of Equipment</label>
-                        <label for="Effect_of_construction_on_design" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Effect of construction on design</label>
-                        <label for="Budget_Cost" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Budget Cost</label>
-                        <label for="Availability_of_material" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Availability of material</label>
-                        <label for="degree_of_Risk_during_construction" style="display: block;height:63px;width: 90%; float: right;text-align: right;">degree of Risk during construction</label>
-                        <label for="latest_technology_forWorld_vision" style="display: block;height:63px;width: 90%; float: right;text-align: right;">latest technology for World's vision</label>
-                        <label for="cost_of_maintenace" style="display: block;height:63px;width: 90%; float: right;text-align: right;">cost of maintenace</label>
-                        <label for="Life_cycle_cost" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Life cycle cost</label>
-                        <label for="Availability_of_skilled_manpower" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Availability of skilled manpower</label>
-                        <label for="Ease_of_Maintenance" style="display: block;height:52px;width: 90%; float: right;text-align: right;">Ease of Maintenance</label>
-                        <label for="Contractor_experience_and_capabilities" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Contractor experience and capabilities</label>
-                        <label for="Diversion_cost_of_Existing_utilities" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Diversion cost of Existing utilities</label>
-                        <label for="future_extension" style="display: block;height:63px;width: 90%; float: right;text-align: right;">future extension</label>
-                        <label for="Aesthetics_of_bridge" style="display: block;height:63px;width: 90%; float: right;text-align: right;">Aesthetics of bridge</label>
-                        <label for="difficulty_in_logestics" style="display: block;height:63px;width: 90%; float: right;text-align: right;">difficulty in logestics</label>
-                        <label for="communication_complexity_level_bewteen_Different_parties" style="display: block;height:63px;width: 90%; float: right;text-align: right;">communication complexity level bewteen Different parties </label>
+                            <br>
+                            <table style="width: 100%">
+                                <tr  th:unless="${x}">
+                                    <th style="text-align: center"><label th:unless="${x}" style="font-size: 35px;display: block;height:63px; float: right;text-align: right;margin-right: 10px;">criteria</label></th>
+                                    <th style="text-align: center"><label th:unless="${x}" style="margin-left:10px;display: block;height:63px;float: left;text-align: left;">rank</label></th>
+                                </tr>
+                                <tr  th:if="${x}">
+                                    <th style="text-align: center"><label th:if="${x}" style="font-size: 35px;display: block;height:63px; float: right;text-align: right;margin-right: 10px;">criteria</label></th>
+                                    <th style="text-align: center"><label th:if="${x}" style="margin-left:10px;display: block;height:63px;float: left;text-align: left;">weight (%)</label></th>
+                                </tr>
+                                <tr>
+                                    <td style="width:60%"><label for="Speed_of_construction" style="display: block;height:63px;width: 90%; float: right;text-align: right;font-size: 35px;">Speed of construction</label></td>
+                                    <td style="width:40%"><input  type="number" min="0" th:max="${x}?'':9" name="Speed_of_construction" id="Speed_of_construction" class="custom-select" th:value="${x} ? 7.03 : '7'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Availability_of_Equipment" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">Availability of Equipment</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Availability_of_Equipment" id="Availability_of_Equipment" class="custom-select" th:value="${x} ? 6.88 : '5.6'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Effect_of_construction_on_design" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">Effect of construction on design</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Effect_of_construction_on_design" id="Effect_of_construction_on_design" class="custom-select" th:value="${x} ? 6.73 : '7.4'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Budget_Cost" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">Budget Cost</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Budget_Cost" id="Budget_Cost" class="custom-select" th:value="${x} ? 6.73 : '6'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Availability_of_material" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">Availability of material</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Availability_of_material" id="Availability_of_material" class="custom-select" th:value="${x} ? 6.45 : '3.4'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="degree_of_Risk_during_construction" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">degree of Risk during construction</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="degree_of_Risk_during_construction" id="degree_of_Risk_during_construction" class="custom-select" th:value="${x} ? 6.16 : '8.2'"/></td>
+                                </tr>
 
-                    </div>
+                                <tr>
+                                    <td><label for="latest_technology_forWorld_vision" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">latest technology for World's vision</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="latest_technology_forWorld_vision" id="latest_technology_forWorld_vision" class="custom-select" th:value="${x} ? 6.16 : '1.8'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="cost_of_maintenace" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">cost of maintenace</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="cost_of_maintenace" id="cost_of_maintenace" class="custom-select" th:value="${x} ? 6.02 : '.1'" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Life_cycle_cost" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">Life cycle cost</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Life_cycle_cost" id="Life_cycle_cost" class="custom-select" th:value="${x} ? 6.02 : '4.9'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Availability_of_skilled_manpower" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">Availability of skilled manpower</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Availability_of_skilled_manpower" id="Availability_of_skilled_manpower" class="custom-select" th:value="${x} ? 6.02 : '6.2'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Ease_of_Maintenance" style="font-size: 35px;display: block;height:52px;width: 90%; float: right;text-align: right;">Ease of Maintenance</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Ease_of_Maintenance" id="Ease_of_Maintenance" class="custom-select" th:value="${x} ? 5.87 : '5.69'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Contractor_experience_and_capabilities" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">Contractor experience and capabilities</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Contractor_experience_and_capabilities" id="Contractor_experience_and_capabilities" class="custom-select" th:value="${x} ? 5.87 : '0'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Diversion_cost_of_Existing_utilities" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">Diversion cost of Existing utilities</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Diversion_cost_of_Existing_utilities" id="Diversion_cost_of_Existing_utilities" class="custom-select" th:value="${x} ? 5.59 : '1'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="future_extension" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">future extension</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="future_extension" id="future_extension" class="custom-select" th:value="${x} ?5.3 : '5.4'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Aesthetics_of_bridge" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">Aesthetics of bridge</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="Aesthetics_of_bridge" id="Aesthetics_of_bridge" class="custom-select" th:value="${x} ? 4.87 : '2'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="difficulty_in_logestics" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">difficulty in logestics</label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="difficulty_in_logestics" id="difficulty_in_logestics" class="custom-select" th:value="${x} ? 4.58 : '2.8'"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="communication_complexity_level_bewteen_Different_parties" style="font-size: 35px;display: block;height:63px;width: 90%; float: right;text-align: right;">communication complexity level bewteen Different parties </label></td>
+                                    <td><input  type="number" min="0" th:max="${x}?'':9" name="communication_complexity_level_bewteen_Different_parties" id="communication_complexity_level_bewteen_Different_parties" class="custom-select" th:value="${x} ?3.72 : '5'" /></td>
+                                </tr>
+                            </table>
 
-                    <div class="grid-child green">
-                        <div class="grid-child purple">
-                            <!--<input type="number" min="0" max="9"" min="1" max="5">-->
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Speed_of_construction" id="Speed_of_construction" class="custom-select" th:value="${x} ? 7.03 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Availability_of_Equipment" id="Availability_of_Equipment" class="custom-select" th:value="${x} ? 6.88 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Effect_of_construction_on_design" id="Effect_of_construction_on_design" class="custom-select" th:value="${x} ? 6.73 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Budget_Cost" id="Budget_Cost" class="custom-select" th:value="${x} ? 6.73 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Availability_of_material" id="Availability_of_material" class="custom-select" th:value="${x} ? 6.45 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="degree_of_Risk_during_construction" id="degree_of_Risk_during_construction" class="custom-select" th:value="${x} ? 6.16 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="latest_technology_forWorld_vision" id="latest_technology_forWorld_vision" class="custom-select" th:value="${x} ? 6.16 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="cost_of_maintenace" id="cost_of_maintenace" class="custom-select" th:value="${x} ? 6.02 : ''" />
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Life_cycle_cost" id="Life_cycle_cost" class="custom-select" th:value="${x} ? 6.02 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Availability_of_skilled_manpower" id="Availability_of_skilled_manpower" class="custom-select" th:value="${x} ? 6.02 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Ease_of_Maintenance" id="Ease_of_Maintenance" class="custom-select" th:value="${x} ? 5.87 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Contractor_experience_and_capabilities" id="Contractor_experience_and_capabilities" class="custom-select" th:value="${x} ? 5.87 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Diversion_cost_of_Existing_utilities" id="Diversion_cost_of_Existing_utilities" class="custom-select" th:value="${x} ? 5.59 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="future_extension" id="future_extension" class="custom-select" th:value="${x} ?5.3 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="Aesthetics_of_bridge" id="Aesthetics_of_bridge" class="custom-select" th:value="${x} ? 4.87 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="difficulty_in_logestics" id="difficulty_in_logestics" class="custom-select" th:value="${x} ? 4.58 : ''"/>
-                            <input  type="number" min="0" th:max="${x}?'':9" name="communication_complexity_level_bewteen_Different_parties" id="communication_complexity_level_bewteen_Different_parties" class="custom-select" th:value="${x} ?3.72 : ''" />
-                        </div>
-                    </div>
-                </div>
                 <div class="grid-container">
 
                     <div  class="grid-child green">
@@ -85,7 +130,7 @@
 
                     </div>
                     <div  class="grid-child purple">
-                        <a th:id="${c.id}" onclick="set_weights(this.id)" class="button button2" style="float:right;display: block;width:fit-content;">Next</a>
+                        <a th:id="${c.id}" onclick="set_weights(this.id)" class="button button1" style="float:right;display: block;width:fit-content;">Next</a>
                     </div>
                 </div>
             </fieldset>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>about</title>
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="confirmdelet.css">
+    <link rel="stylesheet" href="card.css">
+    <style>
+        html, body {
+
+        }
+
+        html {
+            display: table;
+            margin: auto;
+        }
+
+        body {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <p style="font-size: 40px;float: top;">development & presentation</p>
+        <br><br><br><br><br><br><br><br>
+        
+        <form method="#" class="card2" >
+            <div  class="container2" style="align-content: center">
+                <h1 id="message"></h1>
+            </div>
+        </form>
+
+        <br><br><br><br><br><br><br><br><br>
+        <div >
+            <div   style="width: 100%;">
+                <a th:id="${Id}" onclick="back(this.id)" class="button button2" style="float:left;">Back</a>
+                <a th:id="${Id}" onclick="set_weights(this.id)" class="button button1" style="display: block;width:fit-content;float:right;">Next</a>
+            </div>
+        </div>
+        
+    </div>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var bestmodel = /*[[${bestmodel}]]*/ 'default';
+        console.log(bestmodel);
+        /*]]>*/
+
+        /*<![CDATA[*/
+        var data = /*[[${desc}]]*/ 'default';
+        console.log(data);
+        /*]]>*/
+
+        /*<![CDATA[*/
+        var Score = /*[[${Id}]]*/ 'default';
+        console.log(Score);
+        /*]]>*/
+            document.getElementById('message').innerHTML="the best model is : "+data;
+        var back=function(id){
+            location.replace("http://localhost:8080/FinalResult?bestmodel="+bestmodel+"&score="+Score)
+        }
+        var set_weights=function(id){
+            location.replace("http://localhost:8080/thank_you?bestmodel="+bestmodel+"&score="+id)
+        }
+    </script>
+
+    
+</body>
+</html>

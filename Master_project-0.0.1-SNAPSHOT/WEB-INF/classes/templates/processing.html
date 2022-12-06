@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>processing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="card.css">
+
+</head>
+<body>
+
+<div  th:each="c :${area}">
+
+    <div th:if="${x}">
+        <form action="#" >
+            <input  type="text" name="weight" id="weight" class="custom-select" />
+            <a th:id="${c.id}" onclick="set_weights(this.id)" class="button button2" style="display: block;width:fit-content;">Next</a>
+        </form>
+    </div>
+
+
+    <div th:unless="${x}">
+        <form action="#" >
+            <input  type="text" name="name" id="name" class="custom-select" />
+            <a th:id="${c.id}" onclick="openthings(this.id)" class="button button2" style="display: block;width:fit-content;">Next</a>
+        </form>
+    </div>
+
+</div>
+
+<script th:inline="javascript">
+
+    var openthings=function(id){
+        /*<![CDATA[*/
+        var message = /*[[${new_num}]]*/ 'default';
+        console.log(message);
+        /*]]>*/
+
+        var modal = document.getElementById('name');
+        location.replace("http://localhost:8080/"+message+"/"+id+"/Area_areaId?name="+modal.value+"&weight=null")
+    }
+
+    var set_weights=function(id){
+        /*<![CDATA[*/
+        var message = /*[[${new_num}]]*/ 'default';
+        console.log(message);
+        /*]]>*/
+
+        var modal = document.getElementById('weight');
+        location.replace("http://localhost:8080/"+message+"/"+id+"/Area_areaId?name=null&weight="+modal.value)
+    }
+</script>
+
+
+</body>
+</html>

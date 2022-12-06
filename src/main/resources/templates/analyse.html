@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Project</title>
-    <link rel="stylesheet" href="STYLE.css">
-    <link rel="stylesheet" href="confirmdelete.css">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="confirmdelet.css">
     <link rel="stylesheet" href="card.css">
     <style>
         table {
@@ -14,9 +14,10 @@
     </style>
 </head>
 <body>
+<div style="margin: 20px;">
 <p style="font-size: 40px;">analytical Phase</p>
 <div  th:object="${area}">
-    <a th:id="*{id}" onclick="openArea(this.id)" class="button button2" style="float: left;">back</a>
+    <!--<a th:id="*{id}" onclick="openArea(this.id)" class="button button2" style="float: left;">back</a>-->
 
     <table >
         <tr>
@@ -51,10 +52,10 @@
 </div>
 
 <div  class="loader"  th:each="c : ${best_fit}">
-    <form method="#" class="card" >
-        <div  class="container" style="align-content: center;">
+    <form method="#" class="card2" >
+        <div  class="container2" style="align-content: center;">
 
-            <h3 style="color: white;" th:text="*{c}"><p> </p></h3>
+            <h3 style="color: black;" th:text="*{c}"><p> </p></h3>
         </div>
 
 
@@ -63,18 +64,20 @@
 </div>
 
 <div  class="loader"   th:unless="${ERR}">
-    <form method="#" class="card" >
-        <div  class="container" style="align-content: center;">
+    <form method="#" class="card2" >
+        <div  class="container2" style="align-content: center;">
 
-            <h3 style="color: white;"><p>NO Construction System match your Inputs </p></h3>
+            <h3 style="color: black;"><p>NO Construction System match your Inputs </p></h3>
         </div>
     </form>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 <div th:if="${ERR}">
     <div  th:object="${area}">
-        <a th:id="*{id}" onclick="openthings(this.id)" class="button button2" style="display: block;width:fit-content;float:right;">Next</a>
+        <a th:id="*{id}" onclick="openArea(this.id)" class="button button2" style="float: left;">back</a>
+        <a th:id="*{id}" onclick="openthings(this.id)" class="button button1" style="display: block;width:fit-content;float:right;">Next</a>
     </div>
+</div>
 </div>
 <script>
     var openthings=function(id){
