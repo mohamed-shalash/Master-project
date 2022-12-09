@@ -198,5 +198,5 @@ public class aeaControllers {
         model.addAttribute("Id", score);
         return "thank_you";
     }
-
+//http://localhost:8080/result2?id=1
 }

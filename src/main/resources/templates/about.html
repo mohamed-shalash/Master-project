@@ -25,20 +25,22 @@
 <body>
 
     <div>
-        <p style="font-size: 40px;float: top;">development & presentation</p>
+        <p style="font-size: 40px;float: top;" th:text="${bestmodel}"></p>
         <br><br><br><br><br><br><br><br>
         
         <form method="#" class="card2" >
             <div  class="container2" style="align-content: center">
-                <h1 id="message"></h1>
+                <p id="message" style="text-align:justify;font-size: 30px"></p>
             </div>
         </form>
 
         <br><br><br><br><br><br><br><br><br>
         <div >
-            <div   style="width: 100%;">
-                <a th:id="${Id}" onclick="back(this.id)" class="button button2" style="float:left;">Back</a>
-                <a th:id="${Id}" onclick="set_weights(this.id)" class="button button1" style="display: block;width:fit-content;float:right;">Next</a>
+            <div  class="grid-container" style="width: 100%;">
+                <div class="grid-child green"><a th:id="${Id}" onclick="back(this.id)" class="button button2" style="float:left;">Back</a></div>
+                <div class=" grid-child purple">
+                    <a th:id="${Id}" onclick="set_weights(this.id)" class="button button1" style="display: block;width:fit-content;float:right;">Next</a>
+                </div>
             </div>
         </div>
         
