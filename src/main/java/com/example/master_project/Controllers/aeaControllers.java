@@ -189,6 +189,7 @@ public class aeaControllers {
         model.addAttribute("bestmodel", bestmodel);
         model.addAttribute("desc", areaService.Description(bestmodel));
         model.addAttribute("Id", score);
+        model.addAttribute("img", areaService.get_image(bestmodel));
         return "about";
     }
 

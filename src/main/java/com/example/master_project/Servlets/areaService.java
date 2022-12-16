@@ -189,4 +189,42 @@ public class areaService {
         }
         return desc;
     }
+
+    public String get_image(String method){
+        String img="";
+        if((method.trim().toLowerCase()).equals("Precast Span by Span using launching Girder".trim().toLowerCase())) {
+            img = "/pics/Precast_Span_by_Span_using_launching_Girder.png";
+        }
+        else if((method.trim().toLowerCase()).equals("Full Span Launching Method".trim().toLowerCase())) {
+            img ="/pics/Full_Span_Launching_Method.png";
+        }
+        else if((method.trim().toLowerCase()).equals("Free Cantilever precast using lifting frame and formwork".trim().toLowerCase())) {
+            img = "/pics/Free_Cantilever_precast_using_lifting_frame_and_formwork.png";
+        }
+        else if((method.trim().toLowerCase()).equals("Balanced Cantilever cast in situ using two travelers".trim().toLowerCase())) {
+            img = "/pics/Balanced_Cantilever_cast_in_situ_using_two_travelers.png";
+        }
+        else if((method.trim().toLowerCase()).equals("Balanced Cantilever precast using lifting frames".trim().toLowerCase())) {
+            img = "/pics/Balanced_Cantilever_precast_using_lifting_frames.png";
+        }
+        else if((method.trim().toLowerCase()).equals("Precast Incremental launching".trim().toLowerCase())) {
+            img = "/pics/Precast_Incremental_launching.png";
+        }
+        else if((method.trim().toLowerCase()).equals("Cast in Situ segment using formwork supported on ground".trim().toLowerCase())) {
+            img = "/pics/Cast_in_Situ_segment_using_formwork_supported_on_ground.png";
+        }
+        else if((method.trim().toLowerCase()).equals("Reinforced Concrete (RC) cast in situ girder".trim().toLowerCase())) {
+            img = "/pics/Reinforced_Concrete_(RC)_cast_in_situ_girder.png";
+        }
+        else if((method.trim().toLowerCase()).equals("precast post tension girder".trim().toLowerCase())) {
+            img = "/pics/precast_post_tension_girder.png";
+        }
+        else if((method.trim().toLowerCase()).equals("cast in situ post tension girder".trim().toLowerCase())) {
+            img = "/pics/cast_in_situ_post_tension_girder.png" ;
+        }
+        else if((method.trim().toLowerCase()).equals("Hollow core slab cast in situ".trim().toLowerCase())) {
+            img = "/pics/Hollow_core_slab_cast_in_situ.png";
+        }
+        return img;
+    }
 }
